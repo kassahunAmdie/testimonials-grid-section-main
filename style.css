@@ -1,0 +1,208 @@
+:root {
+  /* Primary Colors */
+  --Moderate-violet: hsl(263, 55%, 52%);
+  --Dark-grayish-blue: hsl(217, 19%, 35%);
+  --Dark-blackish-blue: hsl(219, 29%, 14%);
+  --White: hsl(0, 0%, 100%);
+
+  /* Neutral Colors */
+  --Light-gray: hsl(0, 0%, 81%);
+  --Light-grayish-blue: hsl(210, 46%, 95%);
+
+  --f-x-small: 0.6875rem;
+  --f-small: 0.8125rem;
+
+}
+
+/* CSS reset */
+
+/*
+  Josh's Custom CSS Reset with small change
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* End CSS reset */
+
+/* Utilities */
+
+.violet-background {
+  background-color: var(--Moderate-violet);
+  color: var(--Light-gray);
+}
+
+.violet-background .testimonial { 
+  color: var(--White); 
+}
+
+.grayish-blue-background {
+  background-color: var(--Dark-grayish-blue);
+  color: var(--White);
+}
+
+.white-background {
+  background-color: var(--White);
+  color: var(--Dark-grayish-blue);
+}
+
+.dark-grayish-blue-background {
+  background-color: var(--Dark-blackish-blue);
+  color: var(--Light-gray);
+}
+
+.wt-font {
+  color: var(--White);
+}
+
+.x-sm-font {
+  font-size: var(--f-x-small);
+}
+
+h2 {
+  font-size: var(--f-small);
+}
+
+
+
+/* End Utilities */
+
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.384;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: var(--Light-grayish-blue);
+  padding: 71px 24px;  
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonial-card {
+  border-radius: 8px;
+  padding: 26px 32px;
+  max-width: 75ch;
+}
+
+
+.testimonial-card.quote-svg {
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right 15%;
+}
+
+.graduate-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pic {
+  margin-right: 17px;
+}
+
+img {  
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.testimonial {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.23;
+  margin-bottom: 16px;
+}
+
+.attribution {
+   font-size: 11px; 
+   text-align: center;  
+}
+.attribution a {
+   color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (max-width: 59em) {
+  .no-margin {
+    margin-bottom: 0;
+  }
+  
+  .testimonial__sup {
+    margin-right: 17px;  
+    margin-top: 40px;
+  }
+
+  .testimonial-card {
+    padding-block-end: 32px;
+  }
+}
+
+@media screen and (min-width: 59em) {
+  .wrapper {
+    padding-block: 176px;
+  }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1110px;
+    column-gap: 30px;
+  }
+
+  .testimonial-card.quote-svg {
+    background-position: top right 20%;
+  }
+
+  .daniel, .patrick {
+    grid-column: span 2;
+  }
+
+  .kira {
+    grid-column: 4 / 5;
+    grid-row: 1 / span 2;
+  }
+
+  .testimonial-card {
+    max-width: unset;
+  }
+
+  :nth-child(1 of .testimonial-card),
+  :nth-child(2 of .testimonial-card) {
+    padding-block-end: 32px;
+  }
+
+  :nth-child(3 of .testimonial-card) > .testimonial,
+  :nth-child(4 of .testimonial-card) > .testimonial,
+  :nth-child(5 of .testimonial-card) > .testimonial {
+    margin-bottom: 24px;
+  }
+}
